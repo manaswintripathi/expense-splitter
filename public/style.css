@@ -1,0 +1,49 @@
+/* Built by Manaswin Tripathi (@manaswintripathi) */
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; background: #f4f6f8; color: #1c2333; }
+header { background: #1b2a4a; color: #fff; padding: 28px 20px; text-align: center; }
+header h1 { margin: 0; font-size: 2rem; }
+.tagline { margin: 6px 0 0; opacity: .85; }
+main { max-width: 960px; margin: 0 auto; padding: 20px; display: grid; gap: 16px; }
+.card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+h2 { margin-top: 0; }
+h3 { margin-bottom: 8px; }
+.totals { display: flex; gap: 24px; flex-wrap: wrap; }
+.totals .label { display: block; font-size: .8rem; color: #667; }
+.totals strong { font-size: 1.4rem; }
+.balances { display: grid; gap: 8px; }
+.balance-row { display: flex; justify-content: space-between; padding: 8px 12px; background: #f4f6f8; border-radius: 8px; }
+.positive { color: #0a7a3d; font-weight: 700; }
+.negative { color: #b3261e; font-weight: 700; }
+.settlements { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.settlements li { background: #eef7f0; padding: 8px 12px; border-radius: 8px; }
+.bars { display: grid; gap: 8px; }
+.bar-row { display: grid; grid-template-columns: 140px 1fr 90px; gap: 10px; align-items: center; font-size: .9rem; }
+.bar-track { background: #e8edf2; border-radius: 6px; height: 18px; overflow: hidden; }
+.bar-fill { background: #2f7de1; height: 100%; min-width: 2px; }
+.bar-row:nth-child(even) .bar-fill { background: #7c5cd6; }
+.filters, .inline-form { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+label { display: grid; gap: 4px; font-size: .9rem; }
+input, select, button { font: inherit; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; }
+button { background: #1b2a4a; color: #fff; border: none; cursor: pointer; }
+button:hover { opacity: .9; }
+#expense-form { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+#expense-form fieldset { grid-column: 1 / -1; }
+.form-actions { grid-column: 1 / -1; display: flex; gap: 10px; }
+.checkboxes { display: flex; gap: 14px; flex-wrap: wrap; }
+.checkboxes label { display: flex; gap: 6px; align-items: center; }
+.error { color: #b3261e; }
+.muted { color: #667; }
+.hidden { display: none !important; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #e8edf2; }
+.people { list-style: none; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.people li { background: #eef2f7; padding: 6px 12px; border-radius: 20px; }
+.people button, td button { background: transparent; color: #b3261e; padding: 2px 6px; }
+td button.edit { color: #2f7de1; }
+.danger-zone button { margin-right: 10px; }
+footer { text-align: center; padding: 20px; color: #667; font-size: .9rem; }
+@media (max-width: 640px) {
+  #expense-form { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 90px 1fr 70px; }
+}
