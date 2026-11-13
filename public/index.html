@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- Built by Manaswin Tripathi (@manaswintripathi) -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense Splitter — Built by Manaswin Tripathi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>💸 Expense Splitter</h1>
+  <p class="tagline">Split rent, groceries &amp; food — see who owes whom, in seconds.</p>
+</header>
+
+<main>
+  <section class="card" id="summary-card">
+    <h2>Summary <span id="summary-scope"></span></h2>
+    <div class="totals">
+      <div><span class="label">Total spent</span><strong id="total-spent">₹0</strong></div>
+      <div><span class="label">Expenses</span><strong id="total-count">0</strong></div>
+      <div><span class="label">People</span><strong id="total-people">0</strong></div>
+    </div>
+    <h3>Balances</h3>
+    <div id="balances" class="balances"></div>
+    <h3>Settle up (minimum payments)</h3>
+    <ul id="settlements" class="settlements"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Charts</h2>
+    <h3>By category</h3>
+    <div id="category-chart" class="bars"></div>
+    <h3>By month</h3>
+    <div id="month-chart" class="bars"></div>
+  </section>
+
+  <section class="card">
+    <h2>Filters</h2>
+    <div class="filters">
+      <label>Month <input type="month" id="filter-month"></label>
+      <label>Category
+        <select id="filter-category"><option value="">All categories</option></select>
+      </label>
+      <label>Person
+        <select id="filter-person"><option value="">Everyone</option></select>
+      </label>
+      <button id="clear-filters" type="button">Clear filters</button>
+      <button id="export-csv" type="button">⬇ Export CSV</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Add expense</h2>
+    <form id="expense-form">
+      <input type="hidden" id="expense-id">
+      <label>Title <input id="exp-title" required placeholder="e.g. Weekly groceries"></label>
+      <label>Payer
+        <select id="exp-payer" required></select>
+      </label>
+      <label>Amount (₹) <input id="exp-amount" type="number" min="1" step="0.01" required placeholder="1000"></label>
+      <label>Category
+        <select id="exp-category">
+          <option>Rent</option><option>Groceries</option><option>Food</option>
+          <option>Utilities</option><option>Entertainment</option><option>Travel</option><option>Other</option>
+        </select>
+      </label>
+      <label>Date <input id="exp-date" type="date" required></label>
+      <fieldset>
+        <legend>Split between</legend>
+        <div id="exp-participants" class="checkboxes"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Split type</legend>
+        <label><input type="radio" name="splitType" value="equal" checked> Equal</label>
+        <label><input type="radio" name="splitType" value="custom"> Custom shares</label>
+        <div id="custom-shares" class="hidden"></div>
+      </fieldset>
+      <div class="form-actions">
+        <button type="submit" id="expense-submit">Add expense</button>
+        <button type="button" id="expense-cancel" class="hidden">Cancel edit</button>
+      </div>
+      <p id="form-error" class="error"></p>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>People</h2>
+    <form id="person-form" class="inline-form">
+      <input id="person-name" required placeholder="Add a person, e.g. Asha">
+      <button type="submit">Add person</button>
+    </form>
+    <ul id="people-list" class="people"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Expenses</h2>
+    <table>
+      <thead><tr><th>Date</th><th>Title</th><th>Category</th><th>Paid by</th><th>Amount</th><th>Split</th><th></th></tr></thead>
+      <tbody id="expense-rows"></tbody>
+    </table>
+    <p id="no-expenses" class="muted hidden">No expenses match the filters.</p>
+  </section>
+
+  <section class="card danger-zone">
+    <h2>Data</h2>
+    <button id="seed-btn" type="button">Restore sample data</button>
+    <button id="clear-btn" type="button">Clear all expenses</button>
+    <p class="muted">Sample data: rent, groceries, food, Wi-Fi and a movie night — clearable any time. Data is stored in <code>data.json</code> on the server.</p>
+  </section>
+</main>
+
+<footer>Built by Manaswin Tripathi (@manaswintripathi) — Expense Splitter</footer>
+<script src="app.js"></script>
+</body>
+</html>
