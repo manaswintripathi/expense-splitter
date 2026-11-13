@@ -1,0 +1,1 @@
+{"author":"Manaswin Tripathi (@manaswintripathi)","dependencies":{"express":"^4.19.2"},"description":"Split shared expenses between friends, flatmates and teammates — balances, simplified settlements, monthly summaries and CSV export.","license":"MIT","main":"server.js","name":"expense-splitter","scripts":{"dev":"node server.js","start":"node server.js"},"version":"1.0.0"}
